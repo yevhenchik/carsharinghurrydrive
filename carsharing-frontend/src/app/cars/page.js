@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 import { api } from '../../lib/api';
 import CarCard from '../../components/CarCard';
 import styles from './page.module.css';
+import { CITIES } from '../../lib/cities';
 
-const EMPTY_FILTERS = { brand: '', minPrice: '', maxPrice: '', transmission: '', fuel: '', seats: '' };
+const EMPTY_FILTERS = { brand: '', minPrice: '', maxPrice: '', transmission: '', fuel: '', seats: '', city: '' };
 
 export default function CarsPage() {
   const [filters, setFilters] = useState(EMPTY_FILTERS);
@@ -43,7 +44,15 @@ export default function CarsPage() {
       <div className={styles.layout}>
         <aside className={styles.filters}>
           <h2 className={styles.filtersTitle}>Фільтри</h2>
-
+            <div className="field">
+            <label htmlFor="city">Місто</label>
+            <select id="city" value={filters.city} onChange={(e) => updateFilter('city', e.target.value)}>
+              <option value="">Будь-яке</option>
+              {CITIES.map((c) => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
+          </div>
           <div className="field">
             <label htmlFor="brand">Бренд</label>
             <input

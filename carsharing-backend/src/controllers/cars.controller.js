@@ -3,7 +3,7 @@ const prisma = require('../config/db');
 // GET /cars?brand=&minPrice=&maxPrice=&transmission=&fuel=&seats=
 async function listCars(req, res) {
   try {
-    const { brand, minPrice, maxPrice, transmission, fuel, seats } = req.query;
+    const { brand, minPrice, maxPrice, transmission, fuel, seats, city } = req.query;
 
     const where = {
       status: 'AVAILABLE',
@@ -13,6 +13,7 @@ async function listCars(req, res) {
           { model: { startsWith: brand, mode: 'insensitive' } },
         ],
       }),
+      ...(city && { city }),
       ...(transmission && { transmission }),
       ...(fuel && { fuel }),
       ...(seats && { seats: Number(seats) }),
@@ -54,14 +55,14 @@ async function getCar(req, res) {
 // POST /cars (admin)
 async function createCar(req, res) {
   try {
-    const { brand, model, year, pricePerHour, transmission, fuel, seats, image } = req.body;
+    const { brand, model, year, pricePerHour, transmission, fuel, seats, city, image } = req.body;
 
-    if (!brand || !model || !year || !pricePerHour || !transmission || !fuel || !seats) {
+  if (!brand || !model || !year || !pricePerHour || !transmission || !fuel || !seats || !city) {
       return res.status(400).json({ error: "Не всі обов'язкові поля заповнені" });
     }
 
     const car = await prisma.car.create({
-      data: { brand, model, year: Number(year), pricePerHour, transmission, fuel, seats: Number(seats), image },
+      data: { city, brand, model, year: Number(year), pricePerHour, transmission, fuel, seats: Number(seats), image },
     });
 
     return res.status(201).json(car);

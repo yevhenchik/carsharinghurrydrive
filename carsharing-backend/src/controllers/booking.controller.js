@@ -118,6 +118,7 @@ async function cancelBooking(req, res) {
     const updated = await prisma.booking.update({
       where: { id: req.params.id },
       data: { bookingStatus: 'CANCELLED' },
+      include: { car: true, payment: true },
     });
 
     return res.json(updated);

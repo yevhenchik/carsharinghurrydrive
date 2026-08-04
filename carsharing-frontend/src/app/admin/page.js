@@ -5,10 +5,11 @@ import { useRouter } from 'next/navigation';
 import { api } from '../../lib/api';
 import { useAuth } from '../../lib/auth';
 import styles from './page.module.css';
+import { CITIES } from '../../lib/cities';
 
 const EMPTY_CAR = {
   brand: '', model: '', year: '', pricePerHour: '', transmission: 'AUTOMATIC',
-  fuel: 'PETROL', seats: '', image: '',
+  fuel: 'PETROL', seats: '', city: CITIES[0], image: '',
 };
 
 const STATUS_OPTIONS = ['PENDING', 'CONFIRMED', 'CANCELLED', 'COMPLETED'];
@@ -103,7 +104,7 @@ function CarsTab() {
   function startEdit(car) {
     setEditingId(car.id);
     setForm({
-      brand: car.brand, model: car.model, year: car.year, pricePerHour: car.pricePerHour,
+      city: car.city, brand: car.brand, model: car.model, year: car.year, pricePerHour: car.pricePerHour,
       transmission: car.transmission, fuel: car.fuel, seats: car.seats, image: car.image || '',
     });
   }
@@ -194,7 +195,14 @@ function CarsTab() {
           <label>Кількість місць</label>
           <input type="number" required value={form.seats} onChange={(e) => setForm({ ...form, seats: e.target.value })} />
         </div>
-
+        <div className="field">
+          <label>Місто</label>
+            <select required value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })}>
+            {CITIES.map((c) => (
+            <option key={c} value={c}>{c}</option>
+           ))}
+          </select>
+        </div>
         <div className="field">
           <label>URL фото (опційно)</label>
           <input value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} />
@@ -215,7 +223,7 @@ function CarsTab() {
       <div className={styles.carsList}>
         {cars.map((car) => (
           <div key={car.id} className={styles.carRow}>
-            <span>{car.brand} {car.model} <span className="text-muted">({car.year})</span></span>
+            <span>{car.brand} {car.model} <span className="text-muted">({car.year}, {car.city})</span></span>
             <span className="mono">${Number(car.pricePerHour).toFixed(0)}/день</span>
             <div className={styles.carRowActions}>
               <button className="btn btn-outline" onClick={() => startEdit(car)}>Редагувати</button>

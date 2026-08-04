@@ -31,6 +31,8 @@ export default function CarCard({ car }) {
         </div>
 
         <div className={styles.specs}>
+          <span>{car.city}</span>
+          <span>•</span>
           <span>{TRANSMISSION_LABELS[car.transmission] || car.transmission}</span>
           <span>•</span>
           <span>{FUEL_LABELS[car.fuel] || car.fuel}</span>
