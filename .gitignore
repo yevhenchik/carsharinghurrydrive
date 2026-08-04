@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# Environment
+.env
+
+# Backend
+carsharing-backend/node_modules/
+
+# Frontend
+carsharing-frontend/node_modules/
+carsharing-frontend/.next/
+
+# Build
+dist/
+build/

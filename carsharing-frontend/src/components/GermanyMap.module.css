@@ -47,6 +47,7 @@
     fill: var(--accent);
     opacity: 0.25;
     animation: pulse 2.2s ease-out infinite;
+    transform-box: fill-box;
     transform-origin: center;
   }
   
