@@ -1,0 +1,103 @@
+.hero {
+  padding: 64px 0 72px;
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: end;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.heroAccent {
+  color: var(--accent);
+}
+
+.heroSub {
+  color: var(--text-muted);
+  font-size: 17px;
+  max-width: 46ch;
+  line-height: 1.5;
+}
+
+.heroActions {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+/* Панель приладів: замінює типовий hero-скріншот на "живі" дані сервісу */
+.dashboard {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.dashboardRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--border);
+}
+
+.dashboardRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.statusLive {
+  color: var(--accent-2);
+  font-size: 13px;
+}
+
+.sectionHead {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 40px 0 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding-bottom: 16px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding-bottom: 64px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stepNum {
+  color: var(--accent);
+  font-size: 14px;
+}
+
+@media (max-width: 860px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}

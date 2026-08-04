@@ -1,0 +1,51 @@
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 40px 0 32px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  padding-bottom: 64px;
+}
+
+.filters {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  align-self: start;
+  position: sticky;
+  top: 96px;
+}
+
+.filtersTitle {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 18px;
+  margin: 0 0 16px;
+}
+
+.priceRow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .filters {
+    position: static;
+  }
+}

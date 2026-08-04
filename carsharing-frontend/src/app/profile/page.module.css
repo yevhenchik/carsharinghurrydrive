@@ -1,0 +1,68 @@
+.head {
+  padding: 40px 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.section {
+  padding: 32px 0;
+  border-top: 1px dashed var(--border);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.bookingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.carName {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 17px;
+}
+
+.bookingRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+.status[data-status='CONFIRMED'] {
+  color: var(--accent-2);
+  border-color: var(--accent-2);
+}
+.status[data-status='PENDING'] {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.status[data-status='CANCELLED'] {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+.status[data-status='COMPLETED'] {
+  color: var(--text-muted);
+}

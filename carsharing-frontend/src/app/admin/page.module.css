@@ -1,0 +1,143 @@
+.head {
+  padding: 40px 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin: 24px 0 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 12px 18px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 15px;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+}
+
+.tab[data-active='true'] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  padding-bottom: 64px;
+}
+
+.statCard {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.statValue {
+  font-size: 32px;
+  color: var(--accent);
+}
+
+.carsLayout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 32px;
+  padding-bottom: 64px;
+}
+
+.carForm {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  align-self: start;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.formActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.carsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.carRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  flex-wrap: wrap;
+}
+
+.carRowActions {
+  display: flex;
+  gap: 8px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 64px;
+}
+
+.bookingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  flex-wrap: wrap;
+}
+
+.carName {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.statusSelect {
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  padding: 8px 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 800px) {
+  .carsLayout {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,95 @@
+.wrap {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .live {
+    color: var(--accent-2);
+    font-size: 12px;
+  }
+  
+  .svg {
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+  }
+  
+  .outline {
+    fill: var(--bg-elevated-2);
+    stroke: var(--border);
+    stroke-width: 1.5;
+  }
+  
+  .dot {
+    fill: var(--accent-2);
+    stroke: var(--bg-elevated);
+    stroke-width: 1.5;
+  }
+  
+  .dotHq {
+    fill: var(--accent);
+    stroke: var(--bg-elevated);
+    stroke-width: 2;
+  }
+  
+  .pulse {
+    fill: var(--accent);
+    opacity: 0.25;
+    animation: pulse 2.2s ease-out infinite;
+    transform-origin: center;
+  }
+  
+  .marker {
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .marker:focus-visible .dot,
+  .marker:focus-visible .dotHq {
+    stroke: var(--accent);
+    stroke-width: 2.5;
+  }
+  
+  .label {
+    fill: var(--text);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    paint-order: stroke;
+    stroke: var(--bg-elevated);
+    stroke-width: 4px;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.35;
+    }
+    70% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .pulse {
+      animation: none;
+      opacity: 0.2;
+    }
+  }

@@ -1,0 +1,25 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+  padding: 64px 0 96px;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px;
+}
+
+.switchLink {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.switchLink a {
+  color: var(--accent);
+}

@@ -1,0 +1,18 @@
+.footer {
+  margin-top: 80px;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 0;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 600px) {
+  .inner {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
