@@ -15,6 +15,7 @@ const app = express();
 // Гнучке налаштування CORS для продакшну та локальної розробки
 const allowedOrigins = [
   process.env.CLIENT_URL,
+  'https://carsharinghurrydrive.vercel.app',
   'http://localhost:3000',
   'http://localhost:5173',
   'http://127.0.0.1:3000',
