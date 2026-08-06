@@ -6,12 +6,20 @@ import GermanyMap from '../components/GermanyMap';
 import styles from './page.module.css';
 
 async function getFeaturedCars() {
-  try {
-    const cars = await api.listCars();
-    return cars.slice(0, 3);
-  } catch {
-    return [];
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const cars = await api.listCars();
+      if (Array.isArray(cars) && cars.length > 0) {
+        return cars.slice(0, 3);
+      }
+    } catch (err) {
+      console.error(`Спроба ${attempt + 1} завантажити авто не вдалася:`, err.message);
+      if (attempt === 0) {
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+      }
+    }
   }
+  return [];
 }
 
 export default async function HomePage() {
